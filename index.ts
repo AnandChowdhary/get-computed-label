@@ -1,11 +1,13 @@
 const getComputedLabel = (element: HTMLElement) => {
   if (element) {
-
     // The element's `aria-labelledby
     const ariaLabelledby = element.getAttribute("aria-labelledby");
     if (ariaLabelledby) {
       const ariaLabelledbyElement = document.getElementById(ariaLabelledby);
-      if (ariaLabelledbyElement) return ariaLabelledbyElement;
+      if (ariaLabelledbyElement) {
+        const ariaLabelledbyElementText = ariaLabelledbyElement.innerText;
+        if (ariaLabelledbyElementText) return ariaLabelledbyElementText;
+      }
     }
 
     // The element's `aria-label`
@@ -28,7 +30,8 @@ const getComputedLabel = (element: HTMLElement) => {
     if (element.tagName === "SVG") {
       const descElt = element.querySelector("desc");
       if (descElt) {
-        const descText = (<HTMLElement> <unknown> descElt).innerText || descElt.innerHTML;
+        const descText =
+          (<HTMLElement>(<unknown>descElt)).innerText || descElt.innerHTML;
         if (descText) return descText;
       }
     }
@@ -37,7 +40,7 @@ const getComputedLabel = (element: HTMLElement) => {
     const innerText = element.innerText;
     if (innerText) return innerText;
   }
-}
+};
 
 export default getComputedLabel;
 
