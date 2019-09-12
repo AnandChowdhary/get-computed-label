@@ -43,6 +43,3 @@ const getComputedLabel = (element: HTMLElement) => {
 };
 
 export default getComputedLabel;
-
-const elt = document.querySelector("button");
-if (elt) console.log(getComputedLabel(elt));
