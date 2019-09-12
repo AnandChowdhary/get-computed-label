@@ -52,6 +52,10 @@ const image = document.querySelector("img");
 console.log(image.getComputedLabel());
 ```
 
+## ℹ️ Further reading
+
+- [Accessible Name and Description Computation 1.1](https://www.w3.org/TR/accname-1.1/)
+
 ## 📝 License
 
 [MIT](https://github.com/AnandChowdhary/get-computed-label/blob/master/LICENSE) © [Anand Chowdhary](https://anandchowdhary.com)

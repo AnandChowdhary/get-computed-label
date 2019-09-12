@@ -1,6 +1,13 @@
 const getComputedLabel = (element: HTMLElement) => {
   if (element) {
 
+    // The element's `aria-labelledby
+    const ariaLabelledby = element.getAttribute("aria-labelledby");
+    if (ariaLabelledby) {
+      const ariaLabelledbyElement = document.getElementById(ariaLabelledby);
+      if (ariaLabelledbyElement) return ariaLabelledbyElement;
+    }
+
     // The element's `aria-label`
     const ariaLabel = element.getAttribute("aria-label");
     if (ariaLabel) return ariaLabel;
