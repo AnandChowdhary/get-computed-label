@@ -12,10 +12,6 @@ const getComputedLabel = (element: HTMLElement) => {
     const ariaLabel = element.getAttribute("aria-label");
     if (ariaLabel) return ariaLabel;
 
-    // The value of the element
-    const innerText = element.innerText;
-    if (innerText) return innerText;
-
     // If it's an image/etc., alternate text
     // Even if it's an empty alt attribute alt=""
     if (
@@ -27,6 +23,19 @@ const getComputedLabel = (element: HTMLElement) => {
       const altText = element.getAttribute("alt");
       if (typeof altText === "string") return altText;
     }
+
+    // <desc> for SVGs
+    if (element.tagName === "SVG") {
+      const descElt = element.querySelector("desc");
+      if (descElt) {
+        const descText = (<HTMLElement> <unknown> descElt).innerText || descElt.innerHTML;
+        if (descText) return descText;
+      }
+    }
+
+    // The value of the element
+    const innerText = element.innerText;
+    if (innerText) return innerText;
   }
 }
 
