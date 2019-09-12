@@ -1,9 +1,9 @@
 {
   "name": "get-computed-label",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Get an element's computed accessibility label",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/get-computed-label.60f2997f.js",
+  "module": "dist/get-computed-label.60f2997f.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
