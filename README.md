@@ -1,6 +1,6 @@
 # 🏷️ Get computed label
 
-Get an element's computed label from the Accessibility Tree
+Get an element's computed label ("Accessible Name") from the Accessibility Tree
 
 ## 💡 Why?
 
