@@ -55,6 +55,7 @@ console.log(image.getComputedLabel());
 ## ℹ️ Further reading
 
 - [Accessible Name and Description Computation 1.1](https://www.w3.org/TR/accname-1.1/)
+- **TODO** Use computation method described above
 
 ## 📝 License
 
