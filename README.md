@@ -41,6 +41,8 @@ const label = getComputedLabel(document.getElementById("example"));
 console.log(label);
 ```
 
+When `aria-labelledby` contains multiple IDs, each referenced label is resolved in order and joined with spaces.
+
 You can also add this to the prototype, if you're into that:
 
 ```js
