@@ -13,7 +13,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "tsc --emitDeclarationOnly && parcel build index.html"
+    "build": "tsc --emitDeclarationOnly && parcel build index.html",
+    "test": "node test.js"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.3",

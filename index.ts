@@ -1,12 +1,18 @@
 const getComputedLabel = (element: HTMLElement) => {
   if (element) {
-    // The element's `aria-labelledby
+    // The element's `aria-labelledby`
     const ariaLabelledby = element.getAttribute("aria-labelledby");
     if (ariaLabelledby) {
-      const ariaLabelledbyElement = document.getElementById(ariaLabelledby);
-      if (ariaLabelledbyElement) {
-        const ariaLabelledbyElementText = ariaLabelledbyElement.innerText;
-        if (ariaLabelledbyElementText) return ariaLabelledbyElementText;
+      const ariaLabelledbyElementTexts = ariaLabelledby
+        .trim()
+        .split(/\s+/)
+        .map((id) => document.getElementById(id))
+        .map((labelledbyElement) =>
+          labelledbyElement ? labelledbyElement.innerText : ""
+        )
+        .filter(Boolean);
+      if (ariaLabelledbyElementTexts.length) {
+        return ariaLabelledbyElementTexts.join(" ");
       }
     }
 
