@@ -20,6 +20,7 @@ const getComputedLabel = sandbox.module.exports.default;
 
 const createElement = (attributes, innerText, tagName) => ({
   tagName: tagName || "BUTTON",
+  ownerDocument: sandbox.document,
   innerText: innerText || "",
   getAttribute: (name) => {
     if (!Object.prototype.hasOwnProperty.call(attributes, name)) return null;
@@ -69,6 +70,21 @@ assert.strictEqual(
   ),
   "Fallback label",
   "falls back to aria-label when all aria-labelledby references are missing or empty"
+);
+
+const iframeDocument = {
+  getElementById: (id) =>
+    id === "heading" ? { innerText: "Frame heading" } : null,
+};
+const iframeButton = createElement(
+  { "aria-labelledby": "heading", "aria-label": "Fallback label" },
+  "Inner text"
+);
+iframeButton.ownerDocument = iframeDocument;
+assert.strictEqual(
+  getComputedLabel(iframeButton),
+  "Frame heading",
+  "resolves aria-labelledby within the element's own document"
 );
 
 console.log("All tests passed");

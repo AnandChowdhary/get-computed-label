@@ -6,7 +6,7 @@ const getComputedLabel = (element: HTMLElement) => {
       const ariaLabelledbyElementTexts = ariaLabelledby
         .trim()
         .split(/\s+/)
-        .map((id) => document.getElementById(id))
+        .map((id) => (element.ownerDocument || document).getElementById(id))
         .map((labelledbyElement) =>
           labelledbyElement ? labelledbyElement.innerText : ""
         )
